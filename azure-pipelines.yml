@@ -50,26 +50,26 @@ steps:
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)\src\PokerLeagueManager.DB.EventStore\bin\Release\'
     Contents: 'PokerLeagueManager.DB.EventStore.dacpac'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)\drop'
 
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)\src\PokerLeagueManager.DB.QueryStore\bin\Release\'
     Contents: 'PokerLeagueManager.DB.QueryStore.dacpac'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)\drop'
 
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)\deploy'
     Contents: '**'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)\drop\deploy'
 
 - task: DeleteFiles@1
   inputs:
-    SourceFolder: '$(Build.ArtifactStagingDirectory)'
+    SourceFolder: '$(Build.ArtifactStagingDirectory)\drop'
     Contents: '**/*.txt'
 
 - task: DeleteFiles@1
   inputs:
-    SourceFolder: '$(Build.ArtifactStagingDirectory)'
+    SourceFolder: '$(Build.ArtifactStagingDirectory)\drop'
     Contents: '**/*.xml'
