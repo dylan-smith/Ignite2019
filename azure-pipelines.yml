@@ -48,20 +48,20 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(Build.SourcesDirectory)\src\PokerLeagueManager.DB.EventStore\bin\Release\'
-    Contents: 'PokerLeagueManager.DB.EventStore.dacpac'
+    SourceFolder: '$(Build.SourcesDirectory)\src\PokerLeagueManager.DB.EventStore\bin\Release'
+    Contents: '**/PokerLeagueManager.DB.EventStore.dacpac'
     TargetFolder: '$(Build.ArtifactStagingDirectory)\drop'
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(Build.SourcesDirectory)\src\PokerLeagueManager.DB.QueryStore\bin\Release\'
-    Contents: 'PokerLeagueManager.DB.QueryStore.dacpac'
+    SourceFolder: '$(Build.SourcesDirectory)\src\PokerLeagueManager.DB.QueryStore\bin\Release'
+    Contents: '**/PokerLeagueManager.DB.QueryStore.dacpac'
     TargetFolder: '$(Build.ArtifactStagingDirectory)\drop'
 
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)\deploy'
-    Contents: '**'
+    Contents: '**/*'
     TargetFolder: '$(Build.ArtifactStagingDirectory)\drop\deploy'
 
 - task: DeleteFiles@1
