@@ -48,11 +48,11 @@ steps:
 
 - task: DeleteFiles@1
   inputs:
-  SourceFolder: '$(Build.ArtifactStagingDirectory)\drop'
-  Contents: '*.txt'
+    SourceFolder: '$(Build.ArtifactStagingDirectory)\drop'
+    Contents: '*.txt'
 
 - task: DeleteFiles@2
   inputs:
-  SourceFolder: '$(Build.ArtifactStagingDirectory)\drop'
-  Contents: '*.xml'
+    SourceFolder: '$(Build.ArtifactStagingDirectory)\drop'
+    Contents: '*.xml'
 
