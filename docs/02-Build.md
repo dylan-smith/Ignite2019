@@ -20,6 +20,6 @@
   - 4 WebDeploy packages - by default these are built into the $(Build.ArtifactStagingDirectory)
   - 2 DACPAC - by default these are build deep down in the $(Build.SourcesDirectory)
   - The /deploy folder
-  - The build outputs of the PokerLeagueManager.Utilities project (path will be something like /src/PokerLeagueManager.Utilties/bin/Debug)
+  - The build outputs of the PokerLeagueManager.Utilities project (path will be something like /src/PokerLeagueManager.Utilities/bin/Debug)
   - Try and make the build drop clean (see projector slide for example)
 - some useful built-in pipeline variables $(Build.SourcesDirectory), $(Build.ArtifactStagingDirectory)
