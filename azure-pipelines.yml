@@ -46,7 +46,7 @@ steps:
       **\*.Events.WebApi.zip
       **\*.Queries.WebApi.zip
       **\*.UI.Web.zip
-    TargetFolder: '$(Build.AritifactStagingDirectory)'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
     flattenFolders: true
 
 - task: CopyFiles@2
@@ -54,14 +54,14 @@ steps:
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)\deploy'
     Contents: '**'
-    TargetFolder: '$(Build.AritifactStagingDirectory)\deploy'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)\deploy'
 
 - task: CopyFiles@2
   displayName: Copy Utility
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)\src\PokerLeagueManager.Utilities\bin\$(BuildConfiguration)'
     Contents: '**'
-    TargetFolder: '$(Build.AritifactStagingDirectory)\Utility'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)\Utility'
 
 - task: VSTest@2
   displayName: Run Unit Tests
