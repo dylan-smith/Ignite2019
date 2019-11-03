@@ -44,7 +44,7 @@ steps:
     SourceFolder: '$(Build.SourcesDirectory)\src'
     Contents: |
       **\*.dacpac
-      **\*.zip
+      **\PokerLeagueManager*.zip
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     flattenFolders: true
 
