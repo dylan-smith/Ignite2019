@@ -58,6 +58,12 @@ steps:
     Contents: 'PokerLeagueManager.DB.QueryStore.dacpac'
     TargetFolder: 'drop'
 
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)\deploy'
+    Contents: '**'
+    TargetFolder: 'deploy'
+
 - task: DeleteFiles@1
   inputs:
     SourceFolder: '$(Build.ArtifactStagingDirectory)'
