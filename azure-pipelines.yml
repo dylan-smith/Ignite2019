@@ -31,7 +31,7 @@ steps:
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true"'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
@@ -49,22 +49,17 @@ steps:
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)'
-    Contents: '**\*.dacpac'
+    Contents: |
+      **\*Commands.WebApi.zip
+      **\*Events.WebApi.zip
+      **\*Queeries.WebApi.zip
+      **\*UI.WebApi.zip
+      **\*.dacpac
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     flattenFolders: true
 
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)\deploy'
-    Contents: '**\*'
+    Contents: '**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)\deploy'
-
-- task: DeleteFiles@1
-  inputs:
-    SourceFolder: '$(Build.ArtifactStagingDirectory)'
-    Contents: '**/*.txt'
-
-- task: DeleteFiles@1
-  inputs:
-    SourceFolder: '$(Build.ArtifactStagingDirectory)'
-    Contents: '**/*.xml'
