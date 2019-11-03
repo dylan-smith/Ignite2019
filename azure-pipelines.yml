@@ -27,9 +27,7 @@ steps:
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true'
 
 - task: VSTest@2
   inputs:
@@ -41,3 +39,12 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)'
+    Contents: |
+      **PokerLeagueManager*.zip
+      **PokerLeagueManager*.dacpac
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    flattenFolders: true
