@@ -36,21 +36,17 @@ steps:
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)\deploy'
     Contents: '**\*'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)\deploy'
     flattenFolders: true
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(Build.SourcesDirectory)\src\PokerLeagueManager.DB.EventStore\bin\Release\'
-    Contents: '**\*.dacpac'
+    SourceFolder: '$(Build.SourcesDirectory)\src'
+    Contents: |
+      **\*.dacpac
+      **\*.zip
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     flattenFolders: true
-
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: '$(Build.SourcesDirectory)'
-    Contents: '*.zip'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
 - task: VSTest@2
   inputs:
