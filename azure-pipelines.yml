@@ -48,6 +48,12 @@ steps:
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     flattenFolders: true
 
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)\src\PokerLeagueManager.Utilities\obj\Release'
+    Contents: '**\*'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)\utilities'
+
 - task: VSTest@2
   inputs:
     platform: '$(buildPlatform)'
