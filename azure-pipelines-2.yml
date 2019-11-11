@@ -18,7 +18,7 @@ steps:
 - task: NuGetToolInstaller@1
 - task: BatchScript@1
   inputs:
-    filename: 'https://github.com/cgm507/Ignite2019/blob/master/src/PokerLeagueManager.UI.Web/BuildAngular.bat'
+    filename: 'src/PokerLeagueManager.UI.Web/BuildAngular.bat'
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
